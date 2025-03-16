@@ -56,17 +56,28 @@ public class Config implements Serializable {
     return Objects.hash(mensagem);
   }
 
+  @param obj o objeto com o qual será comparado
+  @return true se os objetos forem iguais, caso contrário, false
 
   @Override
   public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
+    if (this == obj) return true;
     if (obj == null)
       return false;
     if (getClass() != obj.getClass())
       return false;
     Config other = (Config) obj;
     return Objects.equals(mensagem, other.mensagem);
+  }
+
+   @return uma string contendo os valores do id e mensagem
+
+  @Override
+  public String toString() {
+    return "Config{" +
+            "id=" + id +
+            ", mensagem='" + mensagem + '\'' +
+            '}'; // Retorna uma string com os valores do id e mensagem
   }
 
 }
