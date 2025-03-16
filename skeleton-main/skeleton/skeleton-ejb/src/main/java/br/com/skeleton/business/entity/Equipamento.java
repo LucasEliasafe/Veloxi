@@ -58,8 +58,6 @@ public class Equipamento implements Serializable {
         this.validade = validade;
         this.valor = valor;
         this.status = status;
-        this.createdAt = LocalDateTime.now();
-        this.updatedAt = LocalDateTime.now();
     }
 
     public Long getId() {
@@ -86,12 +84,12 @@ public class Equipamento implements Serializable {
         this.descricao = descricao;
     }
 
-    public LocalDate getDataAquisicao() {
-        return dataAquisicao;
+    public LocalDate getdatadechegada() {
+        return datadechegada;
     }
 
-    public void setDataAquisicao(LocalDate dataAquisicao) {
-        this.dataAquisicao = dataAquisicao;
+    public void setDatadechegada(LocalDate datadechegada) {
+        this.datadechegada = datadechegada;
     }
 
     public LocalDate getValidade() {
@@ -134,6 +132,11 @@ public class Equipamento implements Serializable {
         this.updatedAt = updatedAt;
     }
 
-
+    @PrePersist
+    public void prePersist() {
+        LocalDateTime now = LocalDateTime.now();
+        this.createdAt = now;
+        this.updatedAt = now;
+    }
 
 }
