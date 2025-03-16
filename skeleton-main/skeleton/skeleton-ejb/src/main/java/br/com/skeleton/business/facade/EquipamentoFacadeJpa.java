@@ -16,10 +16,12 @@ public class EquipamentoFacadeJpa implements EquipamentoFacade {
 
     private static final Logger LOGGER = Logger.getLogger(EquipamentoFacadeJpa.class.getName());
 
-
-    @param equipamento O equipamento a ser salvo. Não pode ser nulo.
-            * @throws IllegalArgumentException Se o equipamento for nulo.
-
+    /**
+     * Salva um novo equipamento no banco de dados.
+     *
+     * @param equipamento O equipamento a ser salvo. Não pode ser nulo.
+     * @throws IllegalArgumentException Se o equipamento for nulo.
+     */
     @Override
     public void create(Equipamento equipamento) {
         if (equipamento == null) {
@@ -29,9 +31,12 @@ public class EquipamentoFacadeJpa implements EquipamentoFacade {
         LOGGER.info("Equipamento criado com sucesso: " + equipamento.getNome());
     }
 
-
-    @param equipamento O equipamento com as alterações aplicadas.
-
+    /**
+     * Atualiza um equipamento existente no banco de dados.
+     *
+     * @param equipamento O equipamento com as alterações aplicadas. Não pode ser nulo.
+     * @throws IllegalArgumentException Se o equipamento for nulo.
+     */
     @Override
     public void update(Equipamento equipamento) {
         if (equipamento == null) {
@@ -41,8 +46,12 @@ public class EquipamentoFacadeJpa implements EquipamentoFacade {
         LOGGER.info("Equipamento atualizado com sucesso: " + equipamento.getNome());
     }
 
-    @param id O ID do equipamento a ser removido.
-
+    /**
+     * Remove um equipamento com base no ID fornecido.
+     *
+     * @param id O ID do equipamento a ser removido. Não pode ser nulo.
+     * @throws IllegalArgumentException Se o ID for nulo.
+     */
     @Override
     public void delete(Long id) {
         if (id == null) {
@@ -57,10 +66,13 @@ public class EquipamentoFacadeJpa implements EquipamentoFacade {
         }
     }
 
-    @param id O identificador do equipamento.
-     @return O equipamento encontrado ou null se não encontrado.
-
-
+    /**
+     * Busca um equipamento pelo ID.
+     *
+     * @param id O identificador do equipamento. Não pode ser nulo.
+     * @return O equipamento encontrado ou null se não encontrado.
+     * @throws IllegalArgumentException Se o ID for nulo.
+     */
     @Override
     public Equipamento findById(Long id) {
         if (id == null) {
@@ -73,8 +85,11 @@ public class EquipamentoFacadeJpa implements EquipamentoFacade {
         return equipamento;
     }
 
-    @return Lista de equipamentos.
-
+    /**
+     * Retorna todos os equipamentos cadastrados no banco.
+     *
+     * @return Lista de equipamentos cadastrados.
+     */
     @Override
     public List<Equipamento> findAll() {
         TypedQuery<Equipamento> query = em.createQuery("SELECT e FROM Equipamento e", Equipamento.class);
@@ -82,5 +97,4 @@ public class EquipamentoFacadeJpa implements EquipamentoFacade {
         LOGGER.info("Total de equipamentos encontrados: " + equipamentos.size());
         return equipamentos;
     }
-
 }

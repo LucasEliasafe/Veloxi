@@ -9,7 +9,6 @@ import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.Objects;
 
-
 @Entity
 @Table(name = "configs")
 public class Config implements Serializable {
@@ -25,20 +24,22 @@ public class Config implements Serializable {
 
   public Config() {}
 
-
   public Config(String mensagem) {
     this.mensagem = mensagem;
   }
 
-  @return a mensagem de configuração
-
+  /**
+   * Retorna a mensagem de configuração.
+   * @return a mensagem de configuração
+   */
   public String getMensagem() {
     return mensagem;
   }
 
-  @param mensagem a nova mensagem de configuração
-
-
+  /**
+   * Define uma nova mensagem de configuração.
+   * @param mensagem a nova mensagem de configuração
+   */
   public void setMensagem(String mensagem) {
     this.mensagem = mensagem;
   }
@@ -56,28 +57,28 @@ public class Config implements Serializable {
     return Objects.hash(mensagem);
   }
 
-  @param obj o objeto com o qual será comparado
-  @return true se os objetos forem iguais, caso contrário, false
-
+  /**
+   * Compara este objeto com outro para verificar se são iguais.
+   * @param obj o objeto com o qual será comparado
+   * @return true se os objetos forem iguais, caso contrário, false
+   */
   @Override
   public boolean equals(Object obj) {
     if (this == obj) return true;
-    if (obj == null)
-      return false;
-    if (getClass() != obj.getClass())
-      return false;
+    if (obj == null || getClass() != obj.getClass()) return false;
     Config other = (Config) obj;
     return Objects.equals(mensagem, other.mensagem);
   }
 
-   @return uma string contendo os valores do id e mensagem
-
+  /**
+   * Retorna uma string contendo os valores do id e mensagem.
+   * @return uma string representando o objeto Config
+   */
   @Override
   public String toString() {
     return "Config{" +
             "id=" + id +
             ", mensagem='" + mensagem + '\'' +
-            '}'; // Retorna uma string com os valores do id e mensagem
+            '}';
   }
-
 }

@@ -15,7 +15,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "")
+@Table(name = "equipamentos")
 
 public class Equipamento implements Serializable {
 
@@ -84,7 +84,7 @@ public class Equipamento implements Serializable {
         this.descricao = descricao;
     }
 
-    public LocalDate getdatadechegada() {
+    public LocalDate getDatadechegada() {
         return datadechegada;
     }
 
@@ -150,7 +150,7 @@ public class Equipamento implements Serializable {
                 "id=" + id +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
-                ", dataAquisicao=" + dataAquisicao +
+                ", datadechegada=" + datadechegada +
                 ", validade=" + validade +
                 ", valor=" + valor +
                 ", status='" + status + '\'' +
