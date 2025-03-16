@@ -144,4 +144,22 @@ public class Equipamento implements Serializable {
         this.updatedAt = LocalDateTime.now();
     }
 
+    @Override
+    public String toString() {
+        return "Equipamento{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", dataAquisicao=" + dataAquisicao +
+                ", validade=" + validade +
+                ", valor=" + valor +
+                ", status='" + status + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
+
+
+
+
 }
