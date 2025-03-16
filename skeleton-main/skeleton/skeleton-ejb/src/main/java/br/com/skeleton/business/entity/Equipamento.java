@@ -48,4 +48,19 @@ public class Equipamento implements Serializable {
 
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
+
+    public Equipamento() {}
+
+    public Equipamento (String nome, String descricao, LocalDate datadechegada, LocalDate validade, BigDecimal valor, String status) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.datadechegada = datadechegada;
+        this.validade = validade;
+        this.valor = valor;
+        this.status = status;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+
 }
