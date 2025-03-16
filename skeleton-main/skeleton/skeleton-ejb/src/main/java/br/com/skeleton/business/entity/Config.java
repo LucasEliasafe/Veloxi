@@ -26,16 +26,30 @@ public class Config implements Serializable {
   public Config() {}
 
 
+  public Config(String mensagem) {
+    this.mensagem = mensagem;
+  }
+
+  @return a mensagem de configuração
 
   public String getMensagem() {
     return mensagem;
   }
+
+  @param mensagem a nova mensagem de configuração
 
 
   public void setMensagem(String mensagem) {
     this.mensagem = mensagem;
   }
 
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 
   @Override
   public int hashCode() {
