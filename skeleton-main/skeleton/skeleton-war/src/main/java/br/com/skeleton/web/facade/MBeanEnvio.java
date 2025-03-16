@@ -38,6 +38,26 @@ public class MBeanEnvio implements Serializable {
     setMensagemRetorno(config.getMensagem());
   }
 
+  public void enviarDados() {
+    try {
+      if (config == null) {
+        LOGGER.warning("Configuração não foi inicializada corretamente.");
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Configuração não foi inicializada."));
+        return;
+      }
+
+      LOGGER.info("Enviando dados: " + config);
+      FacesContext.getCurrentInstance().addMessage(null,
+              new FacesMessage(FacesMessage.SEVERITY_INFO, "Sucesso", "Dados enviados com sucesso!"));
+
+    } catch (Exception e) {
+      LOGGER.log(Level.SEVERE, "Erro ao enviar dados", e);
+      FacesContext.getCurrentInstance().addMessage(null,
+              new FacesMessage(FacesMessage.SEVERITY_ERROR, "Erro", "Falha ao enviar dados. Tente novamente mais tarde."));
+    }
+  }
+
   public String getMensagemRetorno() {
     return mensagemRetorno;
   }
