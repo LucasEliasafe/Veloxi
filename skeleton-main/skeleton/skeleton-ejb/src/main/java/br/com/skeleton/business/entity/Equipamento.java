@@ -139,4 +139,9 @@ public class Equipamento implements Serializable {
         this.updatedAt = now;
     }
 
+    @PreUpdate
+    public void preUpdate() {
+        this.updatedAt = LocalDateTime.now();
+    }
+
 }
